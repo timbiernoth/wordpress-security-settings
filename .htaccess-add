@@ -1,0 +1,50 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^TRACE RewriteRule .* - [F]
+</IfModule>
+
+<ifModule mod_headers.c>
+    Header set Connection keep-alive
+</ifModule>
+
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+    order deny,allow
+    deny from all
+</Files>
+
+<Files xmlrpc.php>
+    order deny,allow deny from all
+</Files>
+
+<Files wp-config.php>
+    order deny,allow deny from all
+</Files>
+
+<Files wp-config-sample.php>
+    order deny,allow
+deny from all
+</Files>
+
+<Files license.txt>
+    order deny,allow deny from all
+</Files>
+
+<Files liesmich.html>
+    order deny,allow deny from all
+</Files>
+
+<Files readme.html>
+    order deny,allow deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^www\.
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
