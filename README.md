@@ -79,4 +79,5 @@ WordPress Security & Performance Settings
 
 ## .htaccess
 
-https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess
+- https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess
+- + https://github.com/timbiernoth/wordpress-security-settings/blob/master/.htaccess-add
